@@ -1,0 +1,48 @@
+.button {
+    box-sizing: border-box;
+    margin-right: .5rem;
+    padding: .375rem .75rem;
+    line-height: 1.5;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: .25rem;
+    cursor: pointer;
+    user-select: none;
+    transition: all .15s;
+    outline: none;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    &_primary {
+        color: #fff;
+        background: #007bff;
+        border: 1px solid #007bff;
+
+        &:hover,
+        &:active {
+            background: #0069d9;
+            border-color: #0062cc;
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba(38,143,255,.5);
+        }
+    }
+
+    &_secondary {
+        background: #f8f9fa;
+        border: 1px solid #f8f9fa;
+
+        &:hover,
+        &:active {
+            background: #e2e6ea;
+            border-color: #dae0e5;
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba(216,217,219,.5);
+        }
+    }
+}
