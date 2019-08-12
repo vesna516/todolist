@@ -15,6 +15,10 @@ const list = [
     id: 3,
     title: 'buttons for deleting todo',
   },
+  {
+    id: 4,
+    title: 'add done/undone button',
+  },
 ]
 
 class App extends Component {

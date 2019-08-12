@@ -1,6 +1,6 @@
 # TODOlist
 
-My first react application.
+My first react application
 
 Node version: 11.14.0
 
