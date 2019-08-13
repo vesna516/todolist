@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 
-class Button extends Component {
-    render() {
-        const { className = '', onClick, children } = this.props;
-        return (
-            <button
-                type="button"
-                className={className}
-                onClick={onClick}
-            >
-                {children}
-            </button>
-        );
-    }
+function Button(props) {
+    const className = `button ${props.className}`;
+    return (
+        <button
+            type="button"
+            className={className}
+            onClick={props.onClick}
+        >
+            {props.children}
+        </button>
+    );
 }
   
 export default Button;

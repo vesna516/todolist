@@ -5,34 +5,23 @@ class CreateItem extends Component {
     constructor(props) {
         super(props);
     
-        this.state = {
-            value: '',
-        }
+        this.state = { value: '' }
     
         this.onChange = this.onChange.bind(this);
-        this.onCreateItem = this.onCreateItem.bind(this);
     }
   
     onChange(event) {
         this.setState({ value: event.target.value });
     }
-  
-    onCreateItem() {
-        if (!this.state.value) {
-            return false;
-        }
 
-        const id = this.props.list[this.props.list.length - 1].id + 1;
-    
-        this.props.list.push({
-            id: id,
-            title: this.state.value,
-        });
-        
-        this.props.onListChange(this.props.list);
+    componentDidMount() {
+        if (this.input) {
+            this.input.focus();
+        }
     }
   
     render() {
+        const { onCreate } = this.props;
         const { value } = this.state;
         return (
             <div className="create-item">
@@ -41,10 +30,11 @@ class CreateItem extends Component {
                     className="input-text"
                     value={value}
                     onChange={this.onChange}
+                    ref={el => this.input = el}
                 />
                 <Button
-                    className="button button_primary"
-                    onClick={this.onCreateItem}
+                    className="button_primary"
+                    onClick={() => onCreate(value)}
                 >
                     Create
                 </Button>

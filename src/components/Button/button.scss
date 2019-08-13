@@ -1,3 +1,8 @@
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$danger-color: #dc3545;
+
 .button {
     box-sizing: border-box;
     margin-right: .5rem;
@@ -15,10 +20,22 @@
         margin-right: 0;
     }
 
+    &_small {
+        padding: .25rem .5rem;
+        font-size: .875rem;
+        border-radius: .2rem;
+
+        .button__icon {
+            $icon-size: .875rem;
+            width: $icon-size;
+            height: $icon-size;
+        }
+    }
+
     &_primary {
         color: #fff;
-        background: #007bff;
-        border: 1px solid #007bff;
+        background: $primary-color;
+        border: 1px solid $primary-color;
 
         &:hover,
         &:active {
@@ -31,18 +48,75 @@
         }
     }
 
-    &_secondary {
-        background: #f8f9fa;
-        border: 1px solid #f8f9fa;
+    &_outline-secondary {
+        color: $secondary-color;
+        background: none;
+        border: 1px solid $secondary-color;
+
+        .button__icon {
+            fill: $secondary-color;
+        }
 
         &:hover,
         &:active {
-            background: #e2e6ea;
-            border-color: #dae0e5;
+            color: #fff;
+            background: $secondary-color;
+
+            .button__icon {
+                fill: $secondary-color;
+            }
         }
 
         &:focus {
-            box-shadow: 0 0 0 0.2rem rgba(216,217,219,.5);
+            box-shadow: 0 0 0 0.2rem rgba(108,117,125,.5);
+        }
+    }
+
+    &_outline-success {
+        color: $success-color;
+        background: none;
+        border: 1px solid $success-color;
+        
+        .button__icon {
+            fill: $success-color;
+        }
+
+        &:hover,
+        &:active {
+            color: #fff;
+            background: $success-color;
+            
+            .button__icon {
+                fill: #fff;
+            }
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba(40,167,69,.5);
+        }
+    }
+
+    &_outline-danger {
+        color: $danger-color;
+        background: none;
+        border: 1px solid $danger-color;
+
+        .button__icon {
+            fill: $danger-color;
+        }
+
+        &:hover,
+        &:active {
+            color: #fff;
+            background: $danger-color;
+            
+            .button__icon {
+                fill: #fff;
+            }
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba(220,53,69,.5);
         }
     }
 }

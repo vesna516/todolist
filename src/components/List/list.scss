@@ -1,15 +1,18 @@
-.list {
-    &__item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: .75em 1.25em;
-        border-bottom: 1px solid rgba(0,0,0,.125);
-        cursor: default;
-        transition: all .15s;
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .75rem 1.25rem;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    cursor: default;
+    transition: all .15s;
 
-        &:hover {
-            background: #f8f9fa;
-        }
+    &:hover {
+        background: #f8f9fa;
+    }
+
+    &_done {
+        text-decoration: line-through;
+        color: #6c757d;
     }
 }

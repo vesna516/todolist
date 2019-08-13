@@ -1,30 +1,41 @@
 import React, { Component } from 'react';
 import Button from '../Button/Button';
 
-class List extends Component {
-    render() {
-        const { list, onRemoveItem } = this.props;
+function List(props) {    
+  return (
+    <div className="list">
+      {props.list.map(item => {
+        const itemClassName = item.isDone ? 'list-item list-item_done' : 'list-item';
+        const buttonText = item.isDone ? 'Undone' : 'Done';
+        const buttonClassName = item.isDone
+          ? 'button_small button_outline-secondary'
+          : 'button_small button_outline-success';
+          
         return (
-            <div className="list">
-                {list.map(item => 
-                    <div
-                        key={item.id}
-                        className="list__item"
-                    >
-                        <div>{item.title}</div>
-                        <div>
-                            <Button
-                                className="button button_secondary"
-                                onClick={() => onRemoveItem(item.id)}
-                            >
-                                Remove
-                            </Button>
-                        </div>
-                    </div>
-                )}
+          <div
+            key={item.id}
+            className={itemClassName}
+          >
+            <div>{item.title}</div>
+            <div>
+              <Button
+                className={buttonClassName}
+                onClick={() => props.onChangeExecutionStatus(item.id)}
+              >
+                {buttonText}
+              </Button>
+              <Button
+                className="button_small button_outline-danger"
+                onClick={() => props.onRemove(item.id)}
+              >
+                Remove
+              </Button>
             </div>
-        );
-    }
+          </div>
+        )}
+      )}
+    </div>
+  );
 }
   
 export default List;
