@@ -1,7 +1,11 @@
 $primary-color: #007bff;
+$primary-color-hover: #0069d9;
+$primary-color-darker: #0062cc;
+$primary-color-dark: #005cbf;
 $secondary-color: #6c757d;
 $success-color: #28a745;
 $danger-color: #dc3545;
+$alternative-text-color: #fff;
 
 .button {
     box-sizing: border-box;
@@ -10,17 +14,23 @@ $danger-color: #dc3545;
     line-height: 1.5;
     font-family: inherit;
     font-size: 1rem;
-    border-radius: .25rem;
+    border-radius: $border-radius;
     cursor: pointer;
     user-select: none;
-    transition: all .15s;
+    transition: $transition;
     outline: none;
 
     &:last-child {
         margin-right: 0;
     }
 
-    &_small {
+    &_icon {
+        $button-size: 2rem;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        width: $button-size;
+        height: $button-size;
         padding: .25rem .5rem;
         font-size: .875rem;
         border-radius: .2rem;
@@ -29,18 +39,23 @@ $danger-color: #dc3545;
             $icon-size: .875rem;
             width: $icon-size;
             height: $icon-size;
+            transition: $transition;
         }
     }
 
     &_primary {
-        color: #fff;
+        color: $alternative-text-color;
         background: $primary-color;
         border: 1px solid $primary-color;
 
-        &:hover,
+        &:hover {
+            background: $primary-color-hover;
+            border-color: $primary-color-darker;
+        }
+
         &:active {
-            background: #0069d9;
-            border-color: #0062cc;
+            background: $primary-color-darker;
+            border-color: $primary-color-dark;
         }
 
         &:focus {
@@ -59,11 +74,11 @@ $danger-color: #dc3545;
 
         &:hover,
         &:active {
-            color: #fff;
+            color: $alternative-text-color;
             background: $secondary-color;
 
             .button__icon {
-                fill: $secondary-color;
+                fill: $alternative-text-color;
             }
         }
 
@@ -83,11 +98,11 @@ $danger-color: #dc3545;
 
         &:hover,
         &:active {
-            color: #fff;
+            color: $alternative-text-color;
             background: $success-color;
             
             .button__icon {
-                fill: #fff;
+                fill: $alternative-text-color;
             }
         }
 
@@ -107,11 +122,11 @@ $danger-color: #dc3545;
 
         &:hover,
         &:active {
-            color: #fff;
+            color: $alternative-text-color;
             background: $danger-color;
             
             .button__icon {
-                fill: #fff;
+                fill: $alternative-text-color;
             }
         }
 
