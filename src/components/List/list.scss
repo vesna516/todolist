@@ -1,53 +1,7 @@
-$block-border-color: rgba(0,0,0,.125);
-$block-hover-background: #f8f9fa;
-
-.list-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1.25rem;
-    border-bottom: 1px solid $block-border-color;
-    cursor: default;
-    transition: $transition;
-
-    &:hover {
-        background: $block-hover-background;
-    }
-
-    &_done {
-        text-decoration: line-through;
-        color: #6c757d;
-    }
-    
-    &__title {
-        flex-grow: 1;
-        height: 3.5rem;
-        margin-right: .5rem;
-        font-family: inherit;
-        font-size: 1rem;
-        color: inherit;
-        background: none;
-        border: none;
-        cursor: pointer;
-        outline: none;
-
-        &:focus {
-            text-decoration: underline;
-        }
-    }
-    
-    &__buttons {
-        display: flex;
-    }
-
-    &__execution-button {
-        .button__icon {
-            opacity: 0;
-        }
-
-        &:hover .button__icon {
-            opacity: 1;
-        }
+.list {
+    &-empty {
+        padding: 1rem;
+        text-align: center;
+        color: var(--txt-disabled-color);
     }
 }
-

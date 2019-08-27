@@ -1,4 +1,8 @@
-$font-family-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap&subset=cyrillic');
+
+$media-tablet: 1024px;
+
+$font-family-primary: 'Open Sans', sans-serif;
 $page-padding: 0 1.25rem;
 $transition: all .15s;
 $border-radius: .25rem;
@@ -7,27 +11,45 @@ body {
     margin: 0;
     padding: 0;
     font-family: $font-family-primary;
-    color: #333;
 }
 
 h1 {
-    margin-top: 0;
-    margin-bottom: 3rem;
-    padding: $page-padding;
+    margin: 0;
     line-height: 1.2;
     font-size: 2.5rem;
     font-weight: 300;
 }
 
 .wrapper {
-    width: 70%;
-    margin: 0 auto;
-    padding: 3rem;
+    min-height: 100vh;
+    background: var(--page-bg);
+    color: var(--txt-color);
+    transition: $transition;
 }
 
-@import "./components/List/list.scss";
+.page {
+    box-sizing: border-box;
+    width: 85%;
+    margin: 0 auto;
+    padding: 0 3rem;
+
+    @media (max-width: $media-tablet) {
+        width: 100%;
+    }
+
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3rem 1.25rem;
+    }
+}
+
+@import "./scss/themes.scss";
 @import "./components/Button/button.scss";
-@import "./components/NewItem/newItem.scss";
+@import "./components/List/list.scss";
+@import "./components/Item/item.scss";
+@import "./components/CreateItem/createItem.scss";
 
 .input-text {
     box-sizing: border-box;
@@ -36,15 +58,21 @@ h1 {
     line-height: 1.5;
     font-family: inherit;
     font-size: 1rem;
-    color: #495057;
-    background-color: #fff;
-    border: 1px solid #ced4da;
+    color: var(--txt-color);
+    background-color: var(--block-bg);
+    border: 1px solid var(--border-color);
     border-radius: $border-radius;
     transition: $transition;
 }
 
 .input-text:focus {
-    border-color: #80bdff;
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    border-color: $primary-color;
+    box-shadow: $primary-boxshadow;
     outline: none;
+}
+
+@media (max-width: $media-tablet) {
+    html {
+        font-size: 14px;
+    }
 }

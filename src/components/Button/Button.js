@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 
 function Button(props) {
-    const className = `button ${props.className}`;
+    const { className, title, children, onClick } = props;
+    const buttonClassName = `button ${className}`;
     return (
         <button
             type="button"
-            className={className}
-            onClick={props.onClick}
-            title={props.title}
+            className={buttonClassName}
+            onClick={onClick}
+            title={title}
         >
-            {props.children}
+            {children}
         </button>
     );
 }

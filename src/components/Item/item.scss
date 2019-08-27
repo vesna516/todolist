@@ -1,0 +1,55 @@
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    cursor: default;
+    transition: $transition;
+
+    &:hover {
+        background: var(--block-hover-bg);
+    }
+
+    &_active {
+        background: var(--block-hover-bg);
+    }
+
+    &_done {
+        text-decoration: line-through;
+        color: var(--txt-disabled-color);
+    }
+    
+    &__title {
+        flex-grow: 1;
+        height: 3.5rem;
+        margin-right: .5rem;
+        font-family: inherit;
+        font-size: 1rem;
+        text-overflow: ellipsis;
+        color: inherit;
+        background: none;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        overflow: hidden;
+
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+    
+    &__buttons {
+        display: flex;
+    }
+
+    &__execution-button {
+        .button__icon {
+            opacity: 0;
+        }
+
+        &:hover .button__icon {
+            opacity: 1;
+        }
+    }
+}

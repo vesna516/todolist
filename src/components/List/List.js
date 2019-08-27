@@ -1,55 +1,42 @@
 import React, { Component } from 'react';
-import Button from '../Button/Button';
-import RemoveIcon from '../../images/remove.svg';
-import DoneIcon from '../../images/done.svg';
+import Item from '../Item/Item';
 
-function List(props) {
-  return (
-    <div className="list">
-      {props.list.map(item => {
-        const itemClassName = item.isDone ? 'list-item list-item_done' : 'list-item';
+class List extends Component {
+  constructor(props) {
+    super(props);
+    this.onRemoveItem = this.onRemoveItem.bind(this);
+  }
 
-        const button = item.isDone
-        ? {
-          className: 'button_icon button_outline-success',
-          title: 'Undo',
-        }
-        : {
-          className: 'button_icon button_outline-secondary list-item__execution-button',
-          title: 'Done',
-        }
-          
-        return (
-          <div
-            key={item.id}
-            className={itemClassName}
-          >
-            <Button
-              className={button.className}
-              onClick={() => props.onDone(item.id)}
-              title={button.title}
-            >
-              <DoneIcon className="button__icon" />
-            </Button>
-            <input
-              className="list-item__title"
-              value={item.title}
-              onChange={() => props.onChange(event, item.id)}
+  onRemoveItem(id) {
+    const list = this.props.list.filter(item => item.id !== id);
+    this.props.updateList(list);
+  }
+
+  render() {
+    const { list, updateList } = this.props;
+
+    if (!list.length) {
+      return (
+        <div className="list-empty">TODOlist is empty</div>
+      );
+    }
+
+    return (
+      <div className="list">
+        {list.map(item => {
+          return (
+            <Item
+              key={item.id}
+              item={item}
+              list={list}
+              updateList={updateList}
+              onRemoveItem={this.onRemoveItem}
             />
-            <div className="list-item__buttons">
-              <Button
-                className="button_small button_outline-danger button_icon"
-                onClick={() => props.onRemove(item.id)}
-                title="Remove"
-              >
-                <RemoveIcon className="button__icon"/>
-              </Button>
-            </div>
-          </div>
-        )}
-      )}
-    </div>
-  );
+          )
+        })}
+      </div>
+    );
+  }
 }
   
 export default List;
