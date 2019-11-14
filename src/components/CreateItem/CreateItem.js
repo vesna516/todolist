@@ -24,7 +24,7 @@ class CreateItem extends Component {
     onCreateItem() {
         const newItemTitle = this.state.newItemTitle;
 
-        if (!newItemTitle) {
+        if (!newItemTitle || !/\S/.test(newItemTitle)) {
             return false;
         }
 
